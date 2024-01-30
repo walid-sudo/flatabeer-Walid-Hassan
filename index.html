@@ -10,8 +10,25 @@
     <div class="beer-details">
         <h1 id="beer-name"></h1>
         <img id="beer-image" alt="Beer Image">
-        <p id="beer-description"></p>
-        <ul id="beer-reviews"></ul>
+        
+        <!-- Box for Beer Description -->
+        <div class="beer-description-box">
+            <label for="beer-description">Description:</label>
+            <textarea id="beer-description" readonly></textarea>
+        </div>
+
+        <!-- Box for Adding Reviews -->
+        <div class="add-review-box">
+            <label for="new-review">Add a new review:</label>
+            <input type="text" id="new-review" name="new-review" required>
+            <button type="button" onclick="addReview()">Submit Review</button>
+        </div>
+
+        <!-- Display Added Reviews -->
+        <div class="reviews-section">
+            <h2>Reviews:</h2>
+            <ul id="beer-reviews"></ul>
+        </div>
     </div>
 
     <nav id="beer-menu"></nav>
@@ -19,8 +36,3 @@
     <script src="app.js"></script>
 </body>
 </html>
-<form id="review-form">
-    <label for="new-review">Add a new review:</label>
-    <input type="text" id="new-review" name="new-review" required>
-    <button type="submit">Submit Review</button>
-</form>

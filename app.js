@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', (
-) => {
+document.addEventListener('DOMContentLoaded', () => {
   // Make a GET request to /beers/1
   fetch('http://localhost:3000/beers/1')
       .then(response => response.json())
@@ -7,7 +6,7 @@ document.addEventListener('DOMContentLoaded', (
           // Update HTML elements with beer details
           document.getElementById('beer-name').textContent = data.name;
           document.getElementById('beer-image').src = data.image_url;
-          document.getElementById('beer-description').textContent = data.description;
+          document.getElementById('beer-description').value = data.description;
 
           const reviewsList = document.getElementById('beer-reviews');
           reviewsList.innerHTML = ""; // Clear existing reviews
@@ -32,14 +31,15 @@ document.addEventListener('DOMContentLoaded', (
           });
       })
       .catch(error => console.error('Error fetching beer menu:', error));
-
-  // Function to display beer details on menu item click
-  function displayBeerDetails(beerId) {
-      // Implement similar code as the one inside the DOMContentLoaded event
-  }
 });
-document.getElementById('review-form').addEventListener('submit', (event) => {
-  event.preventDefault();
+
+// Function to display beer details on menu item click
+function displayBeerDetails(beerId) {
+  // Implement similar code as the one inside the DOMContentLoaded event
+}
+
+// Function to add a new review
+function addReview() {
   const newReview = document.getElementById('new-review').value;
 
   // Update the displayed reviews (no persistence required)
@@ -50,3 +50,4 @@ document.getElementById('review-form').addEventListener('submit', (event) => {
 
   // Clear the input field
   document.getElementById('new-review').value = '';
+}
